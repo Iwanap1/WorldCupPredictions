@@ -1,0 +1,3 @@
+[submodule "data/worldcup"]
+	path = data/worldcup
+	url = https://github.com/openfootball/worldcup.git
