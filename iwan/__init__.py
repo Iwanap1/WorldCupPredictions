@@ -1,1 +1,1 @@
-from .model import IwanModel
+from .predictor import IwanModel
