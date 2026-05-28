@@ -20,7 +20,9 @@ BASE_CONFIG = {
             "goal_difference_weight": 0.2,
         },
         "optimiser": {
-
+            "optimiser": "AdamW",
+            "learning_rate": 1e-4,
+            "weight_decay": 1e-6
         }
     }
 }
