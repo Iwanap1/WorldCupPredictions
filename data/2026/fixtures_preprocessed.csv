@@ -1,0 +1,73 @@
+id,match_number,home_team_id,away_team_id,city_id,stage_id,kickoff_at,match_label,team_1_name,team_2_name
+1,1,1.0,2.0,15,1,2026-06-11 15:00:00-06,Group A,Mexico,South Africa
+2,2,3.0,4.0,14,1,2026-06-11 22:00:00-06,Group A,South Korea,Czechia
+3,3,5.0,6.0,12,1,2026-06-12 15:00:00-04,Group B,Canada,Bosnia and Herzegovina
+4,4,13.0,14.0,6,1,2026-06-12 21:00:00-07,Group D,USA,Paraguay
+5,5,7.0,8.0,10,1,2026-06-13 15:00:00-07,Group B,Qatar,Switzerland
+6,6,9.0,10.0,8,1,2026-06-13 18:00:00-04,Group C,Brazil,Morocco
+7,7,11.0,12.0,2,1,2026-06-13 21:00:00-04,Group C,Haiti,Scotland
+8,8,15.0,16.0,13,1,2026-06-14 00:00:00-07,Group D,Australia,Turkey
+9,9,17.0,18.0,4,1,2026-06-14 13:00:00-05,Group E,Germany,Curaçao
+10,10,21.0,22.0,3,1,2026-06-14 16:00:00-05,Group F,Netherlands,Japan
+11,11,19.0,20.0,9,1,2026-06-14 19:00:00-04,Group E,Côte d'Ivoire,Ecuador
+12,12,23.0,24.0,16,1,2026-06-14 22:00:00-06,Group F,Sweden,Tunisia
+13,13,29.0,30.0,1,1,2026-06-15 12:00:00-04,Group H,Spain,Cabo Verde
+14,14,25.0,26.0,11,1,2026-06-15 15:00:00-07,Group G,Belgium,Egypt
+15,15,31.0,32.0,7,1,2026-06-15 18:00:00-04,Group H,Saudi Arabia,Uruguay
+16,16,27.0,28.0,6,1,2026-06-15 21:00:00-07,Group G,IR Iran,New Zealand
+17,17,33.0,34.0,8,1,2026-06-16 15:00:00-04,Group I,France,Senegal
+18,18,35.0,36.0,2,1,2026-06-16 18:00:00-04,Group I,Iraq,Norway
+19,19,37.0,38.0,5,1,2026-06-16 21:00:00-05,Group J,Argentina,Algeria
+20,20,39.0,40.0,10,1,2026-06-17 00:00:00-07,Group J,Austria,Jordan
+21,21,41.0,42.0,4,1,2026-06-17 13:00:00-05,Group K,Portugal,DR Congo
+22,22,45.0,46.0,3,1,2026-06-17 16:00:00-05,Group L,England,Croatia
+23,23,47.0,48.0,12,1,2026-06-17 19:00:00-04,Group L,Ghana,Panama
+24,24,43.0,44.0,15,1,2026-06-17 22:00:00-06,Group K,Uzbekistan,Colombia
+25,25,4.0,2.0,1,1,2026-06-18 12:00:00-04,Group A,Czechia,South Africa
+26,26,8.0,6.0,6,1,2026-06-18 15:00:00-07,Group B,Switzerland,Bosnia and Herzegovina
+27,27,5.0,7.0,13,1,2026-06-18 18:00:00-07,Group B,Canada,Qatar
+28,28,1.0,3.0,14,1,2026-06-18 21:00:00-06,Group A,Mexico,South Korea
+29,29,13.0,15.0,11,1,2026-06-19 15:00:00-07,Group D,USA,Australia
+30,30,12.0,10.0,2,1,2026-06-19 18:00:00-04,Group C,Scotland,Morocco
+31,31,9.0,11.0,9,1,2026-06-19 21:00:00-04,Group C,Brazil,Haiti
+32,32,16.0,14.0,10,1,2026-06-20 00:00:00-07,Group D,Turkey,Paraguay
+33,33,21.0,23.0,4,1,2026-06-20 13:00:00-05,Group F,Netherlands,Sweden
+34,34,17.0,19.0,12,1,2026-06-20 16:00:00-04,Group E,Germany,Côte d'Ivoire
+35,35,20.0,18.0,5,1,2026-06-20 20:00:00-05,Group E,Ecuador,Curaçao
+36,36,24.0,22.0,16,1,2026-06-21 00:00:00-06,Group F,Tunisia,Japan
+37,37,29.0,31.0,1,1,2026-06-21 12:00:00-04,Group H,Spain,Saudi Arabia
+38,38,25.0,27.0,6,1,2026-06-21 15:00:00-07,Group G,Belgium,IR Iran
+39,39,32.0,30.0,7,1,2026-06-21 18:00:00-04,Group H,Uruguay,Cabo Verde
+40,40,28.0,26.0,13,1,2026-06-21 21:00:00-07,Group G,New Zealand,Egypt
+41,41,37.0,39.0,3,1,2026-06-22 13:00:00-05,Group J,Argentina,Austria
+42,42,33.0,35.0,9,1,2026-06-22 17:00:00-04,Group I,France,Iraq
+43,43,36.0,34.0,8,1,2026-06-22 20:00:00-04,Group I,Norway,Senegal
+44,44,40.0,38.0,10,1,2026-06-22 23:00:00-07,Group J,Jordan,Algeria
+45,45,41.0,43.0,4,1,2026-06-23 13:00:00-05,Group K,Portugal,Uzbekistan
+46,46,45.0,47.0,2,1,2026-06-23 16:00:00-04,Group L,England,Ghana
+47,47,48.0,46.0,12,1,2026-06-23 19:00:00-04,Group L,Panama,Croatia
+48,48,44.0,42.0,14,1,2026-06-23 22:00:00-06,Group K,Colombia,DR Congo
+49,49,8.0,5.0,13,1,2026-06-24 15:00:00-07,Group B,Switzerland,Canada
+50,50,6.0,7.0,11,1,2026-06-24 15:00:00-07,Group B,Bosnia and Herzegovina,Qatar
+51,51,12.0,9.0,7,1,2026-06-24 18:00:00-04,Group C,Scotland,Brazil
+52,52,10.0,11.0,1,1,2026-06-24 18:00:00-04,Group C,Morocco,Haiti
+53,53,4.0,1.0,15,1,2026-06-24 21:00:00-06,Group A,Czechia,Mexico
+54,54,2.0,3.0,16,1,2026-06-24 21:00:00-06,Group A,South Africa,South Korea
+55,55,18.0,19.0,9,1,2026-06-25 16:00:00-04,Group E,Curaçao,Côte d'Ivoire
+56,56,20.0,17.0,8,1,2026-06-25 16:00:00-04,Group E,Ecuador,Germany
+57,57,22.0,23.0,3,1,2026-06-25 19:00:00-05,Group F,Japan,Sweden
+58,58,24.0,21.0,5,1,2026-06-25 19:00:00-05,Group F,Tunisia,Netherlands
+59,59,16.0,13.0,6,1,2026-06-25 22:00:00-07,Group D,Turkey,USA
+60,60,14.0,15.0,10,1,2026-06-25 22:00:00-07,Group D,Paraguay,Australia
+61,61,36.0,33.0,2,1,2026-06-26 15:00:00-04,Group I,Norway,France
+62,62,34.0,35.0,12,1,2026-06-26 15:00:00-04,Group I,Senegal,Iraq
+63,63,30.0,31.0,4,1,2026-06-26 20:00:00-05,Group H,Cabo Verde,Saudi Arabia
+64,64,32.0,29.0,14,1,2026-06-26 20:00:00-06,Group H,Uruguay,Spain
+65,65,26.0,27.0,11,1,2026-06-26 23:00:00-07,Group G,Egypt,IR Iran
+66,66,28.0,25.0,13,1,2026-06-26 23:00:00-07,Group G,New Zealand,Belgium
+67,67,48.0,45.0,8,1,2026-06-27 17:00:00-04,Group L,Panama,England
+68,68,46.0,47.0,9,1,2026-06-27 17:00:00-04,Group L,Croatia,Ghana
+69,69,44.0,41.0,7,1,2026-06-27 19:30:00-04,Group K,Colombia,Portugal
+70,70,42.0,43.0,1,1,2026-06-27 19:30:00-04,Group K,DR Congo,Uzbekistan
+71,71,38.0,39.0,5,1,2026-06-27 22:00:00-05,Group J,Algeria,Austria
+72,72,40.0,37.0,3,1,2026-06-27 22:00:00-05,Group J,Jordan,Argentina
