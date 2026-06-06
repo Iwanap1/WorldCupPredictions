@@ -6,7 +6,7 @@ from predictors import Trainer
 from predictors.goal_probability_predictor import WorldCupGoalsPredictor, ModelAnalyser
 from utils import make_tensor_from_df, convert_goals_scored_to_one_hot
 
-OUTDIR = "models/4_goals_softmax"
+OUTDIR = "models/6_goals_softmax"
 
 BASE_CONFIG = {
     "model": {
@@ -18,7 +18,7 @@ BASE_CONFIG = {
     },
     "training": {
         "epochs": 200,
-        "test_year": 2014,
+        "test_year": 2018,
         "loss": {
             "core_loss_fn": "CrossEntropyLoss",
         },
@@ -36,7 +36,7 @@ BASE_CONFIG = {
         },
         "optimiser": {
             "optimiser": "AdamW",
-            "lr": 1e-4,
+            "lr": 5e-5,
             "weight_decay": 1e-6
         }
     }
