@@ -120,7 +120,7 @@ class FeaturiseSquads:
             with open(f"{min_dir_path}/{query_year}.txt", "r") as f:
                 text = f.read()
             for country in self.featurised_data[feature_year].keys():
-                for feature_name in ["made_r16_last_time", "made_quarters_last_time", "made_semis_last_time", "made_final_last_time"]:
+                for feature_name in ["qualified_last_time", "made_r16_last_time", "made_quarters_last_time", "made_semis_last_time", "made_final_last_time"]:
                     feature_value = self.made_knockout_round_last_time(text, country, phase=feature_name)
                     self.featurised_data[feature_year][country][feature_name] = feature_value
     
@@ -210,6 +210,13 @@ class FeaturiseSquads:
             "made_quarters_last_time": ["Quarter-final", "Semi-finals"],
             "made_semis_last_time": ["Semi-final", "Final"]
         }
+        if phase == "qualified_last_time":
+            if country.lower() in text.lower():
+                return 1
+            if country.lower().replace("-", "") in "united states" and "usa" in text.lower():
+                return 1
+            return 0
+
         if phase in phase_map:
             processed = text.split(phase_map[phase][0])[1].split(phase_map[phase][1])[0].strip().lower()
             if country.lower() in processed:

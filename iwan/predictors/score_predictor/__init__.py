@@ -1,2 +1,2 @@
 from .model import WorldCupScorePredictor
-from .trainer import Trainer
+from .analysis import ModelAnalyser
