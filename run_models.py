@@ -9,7 +9,7 @@ def load_models() -> List[Union[IwanModel, AngusModel]]:
     iwan = IwanModel(
         model_dir="iwan/models/1",
         feature_path="iwan/preprocessed_data/2026_featurised_squads.json",
-        temperature=0.8
+        temperature=0.9
     )
     angus = AngusModel()
     return [iwan, angus]
@@ -27,18 +27,20 @@ def main():
         f_id = fixture_row["id"]
 
         print(f"\n{fixture_row['team_1_name']} v {fixture_row['team_2_name']}")
+        time.sleep(1)
         print('---------------------')
         print_predictions(predictions, f_id)
-        time.sleep(1)
                 
 
 def print_predictions(predictions, f_id):
     for model_name, model_predictions in predictions.items():
         try:
             print(f"{model_name}: {model_predictions[f_id]["team_1_score"]} - {model_predictions[f_id]["team_2_score"]}")
+            time.sleep(0.5)
         except KeyError:
             try:
                 print(f"{model_name}: {model_predictions[str(f_id)]["team_1_score"]} - {model_predictions[str(f_id)]["team_2_score"]}")
+                time.sleep(0.5)
             except KeyError:
                 raise KeyError(f"Keys for {model_name} predictions are not correct. Expected to find key '{f_id}' but getting keys: {list(model_predictions.keys())}")
 
