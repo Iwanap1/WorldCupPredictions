@@ -2,6 +2,7 @@ from typing import List, Union
 from iwan import IwanModel
 from angus import AngusModel
 import pandas as pd
+import time
 
 
 def load_models() -> List[Union[IwanModel, AngusModel]]:
@@ -26,7 +27,9 @@ def main():
         f_id = fixture_row["id"]
 
         print(f"\n{fixture_row['team_1_name']} v {fixture_row['team_2_name']}")
+        print('---------------------')
         print_predictions(predictions, f_id)
+        time.sleep(1)
                 
 
 def print_predictions(predictions, f_id):
