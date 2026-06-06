@@ -1,14 +1,17 @@
+from typing import List, Union
 from iwan import IwanModel
 from angus import AngusModel
 import pandas as pd
 
 
-def load_models():
-    iwan = IwanModel("iwan/models/1")
+def load_models() -> List[Union[IwanModel, AngusModel]]:
+    iwan = IwanModel(
+        model_dir="iwan/models/1",
+        feature_path="iwan/preprocessed_data/2026_featurised_squads.json",
+        temperature=0.8
+    )
     angus = AngusModel()
-
     return [iwan, angus]
-
 
 
 def main():
@@ -17,7 +20,7 @@ def main():
 
     predictions = {}
     for model in models:
-        predictions[model.__name__] = model.predict(fixtures_df)
+        predictions[model.__class__.__name__] = model.predict(fixtures_df)
 
     for fixture_row in fixtures_df.iterrows():
         f_id = fixture_row["id"]
@@ -25,7 +28,6 @@ def main():
         print(f"\n{fixture_row['team_1_name']} v {fixture_row['team_2_name']}")
         print_predictions(predictions, f_id)
                 
-
 
 def print_predictions(predictions, f_id):
     for model_name, model_predictions in predictions.items():

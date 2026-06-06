@@ -5,7 +5,7 @@ class AngusModel:
     def __init__(self):
         pass
 
-    def predict(fixtures_df: pd.DataFrame) -> Dict[str, Dict[str, int]]:
+    def predict(self, fixtures_df: pd.DataFrame) -> Dict[str, Dict[str, int]]:
         """"Must not have any required arguments besides fixtures_df (put those in the __init__), 
         
         Must return a dict like below:
