@@ -2,7 +2,7 @@ from typing import List, Union
 from iwan import IwanModel
 from angus import AngusModel
 import pandas as pd
-import time
+import time, json
 
 
 def load_models() -> List[Union[IwanModel, AngusModel]]:
@@ -22,6 +22,9 @@ def main():
     predictions = {}
     for model in models:
         predictions[model.__class__.__name__] = model.predict(fixtures_df)
+
+    with open("predictions.json", "w") as f:
+        json.dump(predictions, f, indent=4)
 
     for fixture_row in fixtures_df.iterrows():
         f_id = fixture_row["id"]
