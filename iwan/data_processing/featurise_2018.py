@@ -38,7 +38,12 @@ europe_maps = {
         "Hertha": "Hertha BSC",
         'Leverkusen': 'Bayer Leverkusen',
         "M'gladbach": 'Borussia Mönchengladbach',
-        "Mainz": 'Mainz 05'
+        "Mainz": 'Mainz 05',
+        "Wolfsburg": 'VfL Wolfsburg',
+        "Stuttgart": 'VfB Stuttgart',
+        "Hoffenheim": "1899 Hoffenheim",
+        "Freiburg": "SC Freiburg",
+        "Augsburg": "FC Augsburg"
     },
     "laliga": {
         'Alaves': 'Alavés',
@@ -62,7 +67,6 @@ def insert_2018_data(
     csv_path="raw_data/2018 FIFA World Cup Squads.csv",
 ) -> Dict:
 
-    print(featurised_squads.keys())
     wc_teams = pd.read_csv(csv_path)
     countries = wc_teams["Team"].unique()
     top_scorers = []
@@ -92,15 +96,15 @@ def insert_2018_data(
     return featurised_squads
 
 
-def featurise_europe_players(club: str, league_dfs: Dict[str, Dict[int, pd.DataFrame]], output_dict: Dict):
+def featurise_europe_players(club: str, league_dfs: Dict[str, Dict[int, pd.DataFrame]], output_dict: Dict, mapping=europe_maps, year=2018):
     # Change featurise_squads.py to store dfs in dict for simplicity
     # iterate through leagues and count players
     for league in ["laliga", "serie_a", "bundesliga", "ligue_1"]:
         if output_dict.get(f"{league}_players") is None:
             output_dict[f"{league}_players"] = 0
-        df = league_dfs[league][2018]
+        df = league_dfs[league][year]
         league_teams = list(df["HomeTeam"].unique())
-        league_teams = [europe_maps[league].get(l, l).lower() for l in league_teams]
+        league_teams = [mapping[league].get(l, l).lower() for l in league_teams]
         if club.strip().lower() in league_teams:
             output_dict[f"{league}_players"] += 1
 
@@ -127,3 +131,4 @@ def increment_goal_scorers(name: str, top_scorers: List[str], out_dict: Dict):
         if scorer == name:
             out_dict["top_goalscorers_count"] += 1
             return
+        

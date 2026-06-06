@@ -1,4 +1,5 @@
 from .featurise_2018 import insert_2018_data
+from .featurise_2022 import insert_2022_data
 from typing import Dict, List
 import pandas as pd
 import os, json, re
@@ -38,6 +39,7 @@ class FeaturiseSquads:
             parsed_squads: Dict, 
             prem_matches_csv_path: str = "raw_data/prem_matches.csv",
             eighteen_squads_csv_path: str = "raw_data/2018 FIFA World Cup Squads.csv",
+            twenty_two_squads_csv_path: str = "raw_data/archive/2022_FIFA_World_Cup_squads.csv",
             laliga_dir: str = "raw_data/la_liga/",
             serie_a_dir: str = "raw_data/serie_a/",
             bundesliga_dir: str = "raw_data/bundesliga/",
@@ -62,12 +64,20 @@ class FeaturiseSquads:
 
         # main
         self.featurise_early()
+
         self.featurised_data = insert_2018_data(
             self.featurised_data, 
             self.league_dfs,
             self.league_winners,
             self.goalscorers_json,
             csv_path=eighteen_squads_csv_path,
+        )
+        self.featurised_data = insert_2022_data(
+            self.featurised_data, 
+            self.league_dfs,
+            self.league_winners,
+            self.goalscorers_json,
+            csv_path=twenty_two_squads_csv_path,
         )
         self.extract_made_knockouts(min_dir_path)
         self.add_world_rankings()
@@ -274,7 +284,7 @@ class FeaturiseSquads:
 
     def add_world_rankings(self):
         for year in self.featurised_data.keys():
-            if str(year) in ["2026", "2022"]:
+            if str(year) in ["2026"]:
                 continue
             name_rank_dict = self.get_name_and_rank_dict(year)
             for country, data in self.featurised_data[year].items():

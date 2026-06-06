@@ -7,9 +7,9 @@ import time, json
 
 def load_models() -> List[Union[IwanModel, AngusModel]]:
     iwan = IwanModel(
-        model_dir="iwan/models/1",
+        model_dir="iwan/models/6_goals_softmax",
         feature_path="iwan/preprocessed_data/2026_featurised_squads.json",
-        temperature=0.9
+        temperature=0.45
     )
     angus = AngusModel()
     return [iwan, angus]

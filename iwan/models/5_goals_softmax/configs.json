@@ -1,0 +1,83 @@
+{
+    "model": {
+        "hidden_dims": [
+            16
+        ],
+        "activation": "ReLU",
+        "exclude_cols": [
+            "year",
+            "target_team",
+            "opposition",
+            "idx",
+            "goals_scored"
+        ],
+        "max_goals": 5,
+        "poisson_probabilities": false,
+        "target_cols": [
+            "scored_0_goals",
+            "scored_1_goals",
+            "scored_2_goals",
+            "scored_3_goals",
+            "scored_4_goals",
+            "scored_5+_goals"
+        ],
+        "input_dim": 31,
+        "features": [
+            "is_knockout",
+            "team_1_is_home_nation",
+            "team_1_top_goalscorers_count",
+            "team_1_premier_league_players",
+            "team_1_laliga_players",
+            "team_1_serie_a_players",
+            "team_1_bundesliga_players",
+            "team_1_ligue_1_players",
+            "team_1_players_finishing_top_three_europe_domestic",
+            "team_1_n_unique_clubs",
+            "team_1_qualified_last_time",
+            "team_1_made_r16_last_time",
+            "team_1_made_quarters_last_time",
+            "team_1_made_semis_last_time",
+            "team_1_made_final_last_time",
+            "team_1_ranking",
+            "team_2_is_home_nation",
+            "team_2_top_goalscorers_count",
+            "team_2_premier_league_players",
+            "team_2_laliga_players",
+            "team_2_serie_a_players",
+            "team_2_bundesliga_players",
+            "team_2_ligue_1_players",
+            "team_2_players_finishing_top_three_europe_domestic",
+            "team_2_n_unique_clubs",
+            "team_2_qualified_last_time",
+            "team_2_made_r16_last_time",
+            "team_2_made_quarters_last_time",
+            "team_2_made_semis_last_time",
+            "team_2_made_final_last_time",
+            "team_2_ranking"
+        ]
+    },
+    "training": {
+        "epochs": 200,
+        "test_year": 2014,
+        "loss": {
+            "core_loss_fn": "CrossEntropyLoss"
+        },
+        "dataloaders": {
+            "eval": {
+                "batch_size": null,
+                "shuffle": false,
+                "drop_last": false
+            },
+            "train": {
+                "batch_size": 64,
+                "shuffle": true,
+                "drop_last": false
+            }
+        },
+        "optimiser": {
+            "optimiser": "AdamW",
+            "lr": 5e-05,
+            "weight_decay": 1e-06
+        }
+    }
+}

@@ -38,7 +38,7 @@ class BuildDataset:
         results = []
         results_target_team = []
         for year in featurised_squads.keys():
-            if str(year) in ["2026", "2022"]:
+            if str(year) in ["2026"]:
                 continue
             fixtures = all_fixtures[str(year)]
             squad_features = featurised_squads[year]
@@ -86,8 +86,13 @@ class BuildDataset:
         try:
             features = squad_features[name]
         except KeyError:
-            print(name)
-            raise KeyError(f"Could not find fixture name '{name}' in squad features.\nAvailable countries are {list(squad_features.keys())}")
+            if name == "united states":
+                try:
+                    features = squad_features["usa"]
+                except:
+                    raise KeyError(f"Could not find fixture name '{name}' in squad features.\nAvailable countries are {list(squad_features.keys())}")
+            else:
+                raise KeyError(f"Could not find fixture name '{name}' in squad features.\nAvailable countries are {list(squad_features.keys())}")
         for key, value in features.items():
             result[f"team_{team_number}_{key}"] = value
         return result
