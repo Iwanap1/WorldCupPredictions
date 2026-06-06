@@ -25,5 +25,6 @@ if __name__ == "__main__":
     BuildDataset(
         featuriser.featurised_data,
         fixtures_json_path="preprocessed_data/fixtures.json",
-        output_path="preprocessed_data/dataset.csv"
+        output_path_scores="preprocessed_data/scores_combined.csv",
+        output_path_goals="preprocessed_data/goals_scores.csv"
     )
