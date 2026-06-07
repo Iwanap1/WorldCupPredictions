@@ -7,7 +7,8 @@ from sklearn.preprocessing import StandardScaler
 # from iwan.utils import make_tensor_from_df
 import torch
 import json
-
+from sklearn.ensemble import RandomForestClassifier
+import random
 
 class IwanModel:
     TEAM_MAP = {
@@ -30,6 +31,9 @@ class IwanModel:
 
         with open(model_dir / "scalers.pkl", "rb") as f:
             self.scaler = pickle.load(f)
+
+        with open(model_dir / "random_forest_result_predictor.pkl", "rb") as f:
+            self.rfc = pickle.load(f)
         
 
     def predict(self, fixtures_to_predict: pd.DataFrame) -> Dict[str, Dict[str, int]]:
@@ -97,6 +101,24 @@ class IwanModel:
         data = pd.DataFrame([team_1, team_2])
         data_scaled = self.scaler.transform(data)
         data_tensor = torch.tensor(data_scaled, dtype=torch.float32)
-        with torch.no_grad():
-            res = self.model.predict_with_temperature(data_tensor, temperature=self.temperature)
-        return res
+
+        result_probabilities = self.rfc.predict_proba(data)
+        while True:
+            with torch.no_grad():
+                res = self.model.predict_with_temperature(data_tensor, temperature=0.5)
+            sampled_result = random.choices(["t1", "draw", "t2"], weights=result_probabilities[0], k=1)[0]
+            sampled_result_2 = random.choices(["t2", "draw", "t1"], weights=result_probabilities[1], k=1)[0]
+            if self.check_agreement(sampled_result, res) or self.check_agreement(sampled_result_2, res):
+                return res
+            
+    
+    def check_agreement(self, sampled_result, pred_score):
+        t1_score = int(pred_score[0])
+        t2_score = int(pred_score[1])
+        if t1_score > t2_score and sampled_result == "t1":
+            return True
+        if t1_score == t2_score and sampled_result == "draw":
+            return True
+        if t2_score > t1_score and sampled_result == "t2":
+            return True
+        return False
