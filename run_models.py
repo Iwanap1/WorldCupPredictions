@@ -11,7 +11,7 @@ def load_models() -> List[Union[IwanModel, AngusModel]]:
         feature_path="iwan/preprocessed_data/2026_featurised_squads.json",
         temperature=0.5
     )
-    angus = AngusModel()
+    angus = AngusModel(model_path="angus/models")
     return [iwan, angus]
 
 
