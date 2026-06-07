@@ -5,66 +5,77 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
+import os
+import pickle
 
 
-file_path = '/users/angus/cursor/WorldCupPredictions/angus/ranking_results.csv'
+RESULTS_PATH = '/users/angus/cursor/WorldCupPredictions/angus/ranking_results.csv'
 
-ranking_df = pd.read_csv('/users/angus/cursor/WorldCupPredictions/angus/additional_data/fifa_mens_rank.csv')
+RANKING_PATH = '/users/angus/cursor/WorldCupPredictions/angus/additional_data/fifa_mens_rank.csv'
 
+MODEL_PATH = '/users/angus/cursor/WorldCupPredictions/angus/models/'
 
-df = pd.read_csv(file_path)
-df = df.dropna()
-
-
-
-df['score_diff'] = df['score_1'] - df['score_2']
-
-x_train, x_test, y_train, y_test = train_test_split(df[['ranking_1', 'ranking_2']], df[['score_diff', 'score_1']], test_size=0.2, random_state=42)
-
-
-
-g1_model = LinearRegression()
-g1_model.fit(x_train, y_train['score_1'])
-
-gd_model = LinearRegression()
-gd_model.fit(x_train, y_train['score_diff'])
+def get_training_data(results_path: str):
+    results_df = pd.read_csv(results_path)
+    results_df = results_df.dropna()
+    print(results_df.head())
+    results_df['score_diff'] = results_df['score_1'] - results_df['score_2']
+    x_train, x_test, y_train, y_test = train_test_split(results_df[['ranking_1', 'ranking_2']], results_df[['score_diff', 'score_1']], test_size=0.2, random_state=42)
+    return x_train, x_test, y_train, y_test
 
 
+def train_model(results_path: str):
+    x_train, x_test, y_train, y_test = get_training_data(results_path)
+    g1_model = LinearRegression()
+    g1_model.fit(x_train, y_train['score_1'])
+    gd_model = LinearRegression()
+    gd_model.fit(x_train, y_train['score_diff'])
+    save_model(g1_model, gd_model, MODEL_PATH)
+    return g1_model, gd_model
 
-    
+def save_model(g1_model, gd_model, path: str):
+    os.makedirs(path, exist_ok=True)
+    with open(path + '/g1_model.pkl', 'wb') as f:
+        pickle.dump(g1_model, f)
+    with open(path + '/gd_model.pkl', 'wb') as f:
+        pickle.dump(gd_model, f)
+
+def load_model(path: str):
+    with open(path + '/g1_model.pkl', 'rb') as f:
+        g1_model = pickle.load(f)
+    with open(path + '/gd_model.pkl', 'rb') as f:
+        gd_model = pickle.load(f)
+    return g1_model, gd_model
+
 def sim_goals(g1_model, gd_model, rank_1: int, rank_2: int):
-    """ simulates the goals for the two teams """
     g1 = g1_model.predict([[rank_1, rank_2]])
     gd = gd_model.predict([[rank_1, rank_2]])
     g2 = g1 - gd
-
     return np.random.poisson(g1), np.random.poisson(g2)
 
-
-def fetch_rank(team_name: str, year: int):
+def fetch_rank(team_name: str, year: int, ranking_path: str):
     """ fetches the rank of the team for the given year """
+    ranking_df = pd.read_csv(ranking_path)
     return ranking_df[ranking_df['team'] == team_name][ranking_df['date'] == year]['rank'].values[0]
 
-  
-def simulate_match(team_1: str, team_2: str, year: int):
-    """ simulates the match between the two teams """
-    rank_1 = fetch_rank(team_1, year)
-    rank_2 = fetch_rank(team_2, year)
+def simulate_match(team_1: str, team_2: str, year: int, model_path: str, ranking_path: str):
+    # laod models
+    rank_1 = fetch_rank(team_1, year, ranking_path)
+    rank_2 = fetch_rank(team_2, year, ranking_path)
+    with open(model_path + '/g1_model.pkl', 'rb') as f:
+        g1_model = pickle.load(f)
+    with open(model_path + '/gd_model.pkl', 'rb') as f:
+        gd_model = pickle.load(f)
     g1, g2 = sim_goals(g1_model, gd_model, rank_1, rank_2)
     return g1[0], g2[0]
 
-print(simulate_match('England', 'France', 2024))
-
-
-def sim_100_matches(team_1: str, team_2: str, year: int):
+def sim_100_matches(team_1: str, team_2: str, year: int, model_path: str, ranking_path: str):
     """ simulates 100 matches between the two teams """
     results = []
     for i in range(100):
-        g1, g2 = simulate_match(team_1, team_2, year)
+        g1, g2 = simulate_match(team_1, team_2, year, model_path, ranking_path)
         results.append({'team_1': team_1, 'team_2': team_2, 'year': year, 'g1': g1, 'g2': g2})
     results_df = pd.DataFrame(results)
-
-    
 
     # count the number of times team 1 wins, draws and loses
     team_1_wins = results_df[results_df['g1'] > results_df['g2']].shape[0]
@@ -81,6 +92,8 @@ def sim_100_matches(team_1: str, team_2: str, year: int):
     
     return result_lib
 
-result_lib = sim_100_matches('Spain', 'Germany', 2024)
-ordered_result_lib = sorted(result_lib.items(), key=lambda x: x[1], reverse=True)
-print(ordered_result_lib)
+
+if __name__ == '__main__':
+    train_model(RESULTS_PATH)
+    print(simulate_match('Spain', 'Germany', 2024, MODEL_PATH, RANKING_PATH))
+    print(sim_100_matches('Spain', 'Germany', 2024, MODEL_PATH, RANKING_PATH))
