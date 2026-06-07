@@ -84,34 +84,3 @@ def sim_100_matches(team_1: str, team_2: str, year: int):
 result_lib = sim_100_matches('Spain', 'Germany', 2024)
 ordered_result_lib = sorted(result_lib.items(), key=lambda x: x[1], reverse=True)
 print(ordered_result_lib)
-
-
-class AngusModel:
-    def __init__(self):
-        pass
-
-    def predict(self, fixtures_df: pd.DataFrame) -> Dict[str, Dict[str, int]]:
-        """"Must not have any required arguments besides fixtures_df (put those in the __init__), 
-        
-        Must return a dict like below:
-        {
-            "<match_id>": {
-                "team_1_score": 0,
-                "team_2_score": 1
-            },
-            ...
-        }
-
-        fixtures_df has columns: 
-            id, match_number, home_team_id, away_team_id, city_id, stage_id, kickoff_at, match_label, team_1_name, team_2_name
-
-            
-        use fixtures_df["id"] as the keys for the results.
-        """
-    
-
-
-    
-
-
-        
