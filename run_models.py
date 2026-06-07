@@ -9,14 +9,14 @@ def load_models() -> List[Union[IwanModel, AngusModel]]:
     iwan = IwanModel(
         model_dir="iwan/models/6_goals_softmax",
         feature_path="iwan/preprocessed_data/2026_featurised_squads.json",
-        temperature=0.45
+        temperature=0.5
     )
     angus = AngusModel()
     return [iwan, angus]
 
 
 def main():
-    fixtures_df = pd.read_csv("data/2026/fixtures_preprocessed.csv")
+    fixtures_df = pd.read_csv("data/2026/fixtures_preprocessed.csv").sample(3)
     models = load_models()
 
     predictions = {}
@@ -26,23 +26,24 @@ def main():
     with open("predictions.json", "w") as f:
         json.dump(predictions, f, indent=4)
 
-    for fixture_row in fixtures_df.iterrows():
-        f_id = fixture_row["id"]
+    for _, fixture_row in fixtures_df.iterrows():
 
-        print(f"\n{fixture_row['team_1_name']} v {fixture_row['team_2_name']}")
-        time.sleep(1)
+        f_id = fixture_row["id"]
+        time.sleep(0.5)
+        print(f"\n\n{fixture_row['team_1_name']} v {fixture_row['team_2_name']}")
         print('---------------------')
+        time.sleep(1)
         print_predictions(predictions, f_id)
                 
 
 def print_predictions(predictions, f_id):
     for model_name, model_predictions in predictions.items():
         try:
-            print(f"{model_name}: {model_predictions[f_id]["team_1_score"]} - {model_predictions[f_id]["team_2_score"]}")
+            print(f"{model_name}: {model_predictions[f_id]['team_1_score']} - {model_predictions[f_id]['team_2_score']}")
             time.sleep(0.5)
         except KeyError:
             try:
-                print(f"{model_name}: {model_predictions[str(f_id)]["team_1_score"]} - {model_predictions[str(f_id)]["team_2_score"]}")
+                print(f"{model_name}: {model_predictions[str(f_id)]['team_1_score']} - {model_predictions[str(f_id)]['team_2_score']}")
                 time.sleep(0.5)
             except KeyError:
                 raise KeyError(f"Keys for {model_name} predictions are not correct. Expected to find key '{f_id}' but getting keys: {list(model_predictions.keys())}")

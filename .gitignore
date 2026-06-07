@@ -222,3 +222,4 @@ iwan/raw_data/
 iwan/preprocessed_data/
 .DS_Store
 iwan/.DS_Store
+prediction_test.ipynb
