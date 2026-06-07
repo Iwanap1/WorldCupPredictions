@@ -2,7 +2,7 @@ from .model import WorldCupGoalsPredictor
 import torch, json
 from pathlib import Path
 import pandas as pd
-from utils import make_tensor_from_df
+from iwan.utils import make_tensor_from_df
 from sklearn.preprocessing import StandardScaler
 from typing import List
 
