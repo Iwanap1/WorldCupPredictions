@@ -53,10 +53,17 @@ class AngusModel:
             team1 = TEAM_MAP.get(team1, team1)
             team2 = TEAM_MAP.get(team2, team2)
             g1, g2 = self.simulate_match(team1, team2)
-            results[row["id"]] = {
-                "team_1_score": int(g1),
-                "team_2_score": int(g2)
-            }
+            if not isinstance(g1, int):
+                g1 = g1[0]
+            if not isinstance(g2, int):
+                g2 = g2[0]
+            try:
+                results[row["id"]] = {
+                    "team_1_score": int(g1),
+                    "team_2_score": int(g2)
+                }
+            except:
+                print(g1, g2)
         return results
 
     def load_model(self, model_path: str):
@@ -70,16 +77,17 @@ class AngusModel:
         rank_1 = RANKINGS[team_1]
         rank_2 = RANKINGS[team_2]
         g1, g2 = self.sim_goals(rank_1, rank_2)
-        return int(g1), int(g2)
+        return g1, g2
 
     def sim_goals(self, rank_1: int, rank_2: int):
         g1 = max(0, self.g1_model.predict([[rank_1, rank_2]]))
         gd = self.gd_model.predict([[rank_1, rank_2]])
         g2 = max(0, g1 - gd)
         return np.random.poisson(g1), np.random.poisson(g2)
+        
 
-if __name__ == '__main__':
-    model = AngusModel(MODEL_PATH)
+# if __name__ == '__main__':
+#     model = AngusModel(MODEL_PATH)
 
   
 

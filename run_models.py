@@ -16,7 +16,7 @@ def load_models() -> List[Union[IwanModel, AngusModel]]:
 
 
 def main():
-    fixtures_df = pd.read_csv("data/2026/fixtures_preprocessed.csv").sample(3)
+    fixtures_df = pd.read_csv("data/2026/fixtures_preprocessed.csv")
     models = load_models()
 
     predictions = {}
@@ -26,10 +26,13 @@ def main():
     with open("predictions.json", "w") as f:
         json.dump(predictions, f, indent=4)
 
+    print("\n\n\n\n\n\nRESULTS")
+    print("=================")
+
     for _, fixture_row in fixtures_df.iterrows():
 
         f_id = fixture_row["id"]
-        time.sleep(0.5)
+        time.sleep(1)
         print(f"\n\n{fixture_row['team_1_name']} v {fixture_row['team_2_name']}")
         print('---------------------')
         time.sleep(1)
@@ -40,11 +43,11 @@ def print_predictions(predictions, f_id):
     for model_name, model_predictions in predictions.items():
         try:
             print(f"{model_name}: {model_predictions[f_id]['team_1_score']} - {model_predictions[f_id]['team_2_score']}")
-            time.sleep(0.5)
+            time.sleep(1)
         except KeyError:
             try:
                 print(f"{model_name}: {model_predictions[str(f_id)]['team_1_score']} - {model_predictions[str(f_id)]['team_2_score']}")
-                time.sleep(0.5)
+                time.sleep(1)
             except KeyError:
                 raise KeyError(f"Keys for {model_name} predictions are not correct. Expected to find key '{f_id}' but getting keys: {list(model_predictions.keys())}")
 

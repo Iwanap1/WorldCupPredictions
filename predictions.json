@@ -1,16 +1,582 @@
 {
     "IwanModel": {
-        "54": {
-            "team_1_score": 0,
-            "team_2_score": 2
-        },
-        "62": {
+        "1": {
             "team_1_score": 2,
             "team_2_score": 0
         },
+        "2": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "3": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "4": {
+            "team_1_score": 2,
+            "team_2_score": 1
+        },
+        "5": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "6": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "7": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "8": {
+            "team_1_score": 1,
+            "team_2_score": 2
+        },
         "9": {
+            "team_1_score": 2,
+            "team_2_score": 0
+        },
+        "10": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "11": {
+            "team_1_score": 1,
+            "team_2_score": 2
+        },
+        "12": {
+            "team_1_score": 2,
+            "team_2_score": 1
+        },
+        "13": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "14": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "15": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "16": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "17": {
             "team_1_score": 3,
             "team_2_score": 0
+        },
+        "18": {
+            "team_1_score": 0,
+            "team_2_score": 3
+        },
+        "19": {
+            "team_1_score": 2,
+            "team_2_score": 1
+        },
+        "20": {
+            "team_1_score": 3,
+            "team_2_score": 1
+        },
+        "21": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "22": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "23": {
+            "team_1_score": 2,
+            "team_2_score": 1
+        },
+        "24": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "25": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "26": {
+            "team_1_score": 3,
+            "team_2_score": 0
+        },
+        "27": {
+            "team_1_score": 2,
+            "team_2_score": 0
+        },
+        "28": {
+            "team_1_score": 2,
+            "team_2_score": 1
+        },
+        "29": {
+            "team_1_score": 2,
+            "team_2_score": 1
+        },
+        "30": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "31": {
+            "team_1_score": 2,
+            "team_2_score": 0
+        },
+        "32": {
+            "team_1_score": 3,
+            "team_2_score": 1
+        },
+        "33": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "34": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "35": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "36": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "37": {
+            "team_1_score": 3,
+            "team_2_score": 0
+        },
+        "38": {
+            "team_1_score": 3,
+            "team_2_score": 2
+        },
+        "39": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "40": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "41": {
+            "team_1_score": 3,
+            "team_2_score": 1
+        },
+        "42": {
+            "team_1_score": 3,
+            "team_2_score": 0
+        },
+        "43": {
+            "team_1_score": 2,
+            "team_2_score": 0
+        },
+        "44": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "45": {
+            "team_1_score": 4,
+            "team_2_score": 0
+        },
+        "46": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "47": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "48": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "49": {
+            "team_1_score": 3,
+            "team_2_score": 0
+        },
+        "50": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "51": {
+            "team_1_score": 0,
+            "team_2_score": 3
+        },
+        "52": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "53": {
+            "team_1_score": 1,
+            "team_2_score": 2
+        },
+        "54": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "55": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "56": {
+            "team_1_score": 0,
+            "team_2_score": 2
+        },
+        "57": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "58": {
+            "team_1_score": 0,
+            "team_2_score": 2
+        },
+        "59": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "60": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "61": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "62": {
+            "team_1_score": 3,
+            "team_2_score": 1
+        },
+        "63": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "64": {
+            "team_1_score": 0,
+            "team_2_score": 3
+        },
+        "65": {
+            "team_1_score": 0,
+            "team_2_score": 2
+        },
+        "66": {
+            "team_1_score": 0,
+            "team_2_score": 3
+        },
+        "67": {
+            "team_1_score": 0,
+            "team_2_score": 2
+        },
+        "68": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "69": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "70": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "71": {
+            "team_1_score": 1,
+            "team_2_score": 2
+        },
+        "72": {
+            "team_1_score": 0,
+            "team_2_score": 5
+        }
+    },
+    "AngusModel": {
+        "1": {
+            "team_1_score": 4,
+            "team_2_score": 0
+        },
+        "2": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "3": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "4": {
+            "team_1_score": 2,
+            "team_2_score": 1
+        },
+        "5": {
+            "team_1_score": 0,
+            "team_2_score": 4
+        },
+        "6": {
+            "team_1_score": 3,
+            "team_2_score": 0
+        },
+        "7": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "8": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "9": {
+            "team_1_score": 4,
+            "team_2_score": 0
+        },
+        "10": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "11": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "12": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "13": {
+            "team_1_score": 3,
+            "team_2_score": 0
+        },
+        "14": {
+            "team_1_score": 1,
+            "team_2_score": 2
+        },
+        "15": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "16": {
+            "team_1_score": 4,
+            "team_2_score": 0
+        },
+        "17": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "18": {
+            "team_1_score": 2,
+            "team_2_score": 1
+        },
+        "19": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "20": {
+            "team_1_score": 7,
+            "team_2_score": 1
+        },
+        "21": {
+            "team_1_score": 4,
+            "team_2_score": 0
+        },
+        "22": {
+            "team_1_score": 2,
+            "team_2_score": 2
+        },
+        "23": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "24": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "25": {
+            "team_1_score": 3,
+            "team_2_score": 0
+        },
+        "26": {
+            "team_1_score": 3,
+            "team_2_score": 1
+        },
+        "27": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "28": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "29": {
+            "team_1_score": 2,
+            "team_2_score": 1
+        },
+        "30": {
+            "team_1_score": 0,
+            "team_2_score": 2
+        },
+        "31": {
+            "team_1_score": 4,
+            "team_2_score": 0
+        },
+        "32": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "33": {
+            "team_1_score": 5,
+            "team_2_score": 0
+        },
+        "34": {
+            "team_1_score": 2,
+            "team_2_score": 1
+        },
+        "35": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "36": {
+            "team_1_score": 0,
+            "team_2_score": 3
+        },
+        "37": {
+            "team_1_score": 4,
+            "team_2_score": 0
+        },
+        "38": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "39": {
+            "team_1_score": 5,
+            "team_2_score": 0
+        },
+        "40": {
+            "team_1_score": 0,
+            "team_2_score": 3
+        },
+        "41": {
+            "team_1_score": 4,
+            "team_2_score": 0
+        },
+        "42": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "43": {
+            "team_1_score": 2,
+            "team_2_score": 3
+        },
+        "44": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "45": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "46": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "47": {
+            "team_1_score": 0,
+            "team_2_score": 0
+        },
+        "48": {
+            "team_1_score": 2,
+            "team_2_score": 2
+        },
+        "49": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "50": {
+            "team_1_score": 3,
+            "team_2_score": 2
+        },
+        "51": {
+            "team_1_score": 0,
+            "team_2_score": 2
+        },
+        "52": {
+            "team_1_score": 3,
+            "team_2_score": 0
+        },
+        "53": {
+            "team_1_score": 0,
+            "team_2_score": 4
+        },
+        "54": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "55": {
+            "team_1_score": 0,
+            "team_2_score": 2
+        },
+        "56": {
+            "team_1_score": 3,
+            "team_2_score": 1
+        },
+        "57": {
+            "team_1_score": 2,
+            "team_2_score": 2
+        },
+        "58": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "59": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "60": {
+            "team_1_score": 2,
+            "team_2_score": 2
+        },
+        "61": {
+            "team_1_score": 0,
+            "team_2_score": 4
+        },
+        "62": {
+            "team_1_score": 3,
+            "team_2_score": 0
+        },
+        "63": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "64": {
+            "team_1_score": 2,
+            "team_2_score": 0
+        },
+        "65": {
+            "team_1_score": 0,
+            "team_2_score": 2
+        },
+        "66": {
+            "team_1_score": 0,
+            "team_2_score": 2
+        },
+        "67": {
+            "team_1_score": 0,
+            "team_2_score": 1
+        },
+        "68": {
+            "team_1_score": 2,
+            "team_2_score": 0
+        },
+        "69": {
+            "team_1_score": 1,
+            "team_2_score": 1
+        },
+        "70": {
+            "team_1_score": 2,
+            "team_2_score": 0
+        },
+        "71": {
+            "team_1_score": 1,
+            "team_2_score": 0
+        },
+        "72": {
+            "team_1_score": 0,
+            "team_2_score": 1
         }
     }
 }

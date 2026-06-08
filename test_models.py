@@ -9,13 +9,13 @@ def load_models() -> List[Union[IwanModel, AngusModel]]:
         feature_path="iwan/preprocessed_data/2026_featurised_squads.json",
         temperature=0.45
     )
-    angus = AngusModel()
+    angus = AngusModel(model_path="angus/models")
     return [iwan, angus]
 
 def main():
     fixtures_df = pd.read_csv("data/2026/fixtures_preprocessed.csv")
     models = load_models()
-    test_df = fixtures_df.sample(20)
+    test_df = fixtures_df
     model_predictions = {}
     for model in models:
         model_predictions[model.__class__.__name__] = model.predict(test_df)
